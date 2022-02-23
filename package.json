@@ -7,8 +7,16 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "bootstrap": "^5.1.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SirdsH/userDatabase.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SirdsH/userDatabase/issues"
+  },
+  "homepage": "https://github.com/SirdsH/userDatabase#readme",
+  "description": ""
 }
