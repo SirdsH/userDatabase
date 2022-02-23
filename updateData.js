@@ -1,8 +1,5 @@
 window.onload = () => {
 
-    let updateBtn = document.getElementById('updateBtn');
-    let writeOut = document.getElementById('writeOut');
-    updateBtn.addEventListener('click', write);
     let d = window.location.search.split("=")[1]
 
     fetch('http://167.172.175.168/9f7c75e9-6dfa-44f0-be35-456e466ce394/Clients/' + d, {
@@ -12,18 +9,39 @@ window.onload = () => {
         .then(wr => {
 
             let names = document.createElement('div');
-            names.classList.add('text-center')
             names.innerHTML = `
-                    <h2>Updating: ${wr.firstName} ${wr.lastName}</h2>
-                    `;
+              
+    <div class="form-group">
+        <label for="inputEmail">Email address</label>
+        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+               placeholder="${wr.email}">
+    </div>
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input class="form-control" id="firstName" aria-describedby="firstNameHelp"
+               placeholder="${wr.firstName}">
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input class="form-control" id="lastName" aria-describedby="lastNameHelp"
+               placeholder="${wr.lastName}">
+    </div>
+    
+`
+            ;
+
             console.log("name: " + wr.firstName)
             writeOut.appendChild(names);
 
         })
 
 
+    let writeOut = document.getElementById('writeOut');
+    let updateBtn = document.getElementById('updateBtn');
+    updateBtn.addEventListener('click', updateWrite);
 
-    function write() {
+
+    function updateWrite() {
         let email = document.getElementById('inputEmail');
         let firstName = document.getElementById('firstName');
         let lastName = document.getElementById('lastName');
@@ -53,19 +71,5 @@ window.onload = () => {
                 console.log(wr)
                 location.href = 'index.html'
             })
-
-
-
     }
-
-
 }
-/*for (let i = 0; i < wr.length; i++) {
-                    let names = document.createElement('div')
-                    names.innerHTML = `
-                    <div>${wr[i].firstName} ${wr[i].lastName}</div>
-                    `;
-                    console.log("name: " + wr[i].firstName)
-                    writeOut.appendChild(names);
-
-                }*/
